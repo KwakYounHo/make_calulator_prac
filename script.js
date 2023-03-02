@@ -26,7 +26,7 @@ YH = {
     }
   },
   intNumBox : function () {
-    if (this.numBox.length === i) {
+    if (this.numBox.length === 0) {
       printNum.innerText = Number(this.numBox.join(""))
     }
   }
@@ -101,28 +101,37 @@ let y;
 let result;
 
 function operatorClick() {
-  if (this.value === 'C') {
+  if (this.value === 'C') { // 초기화
     x = undefined;
     y = undefined;
     nowOperator = undefined;
     result = undefined;
     for (i=0; i<YH.numBox.length;) {
       YH.numBox.pop();
-      YH.intNumBox()
     }
-  } else if (this.value === '←') {
+    YH.intNumBox()
+  } else if (this.value === '←') {  // 지우개
     YH.numBox.pop()
     printNum.innerText = Number(YH.numBox.join(""))
-  } else if (this.value === '=') {
-    y = Number(YH.numBox.join(""));
+  } else if (this.value === '=') {  // 계산
+    if (result === undefined) {
+      y = Number(YH.numBox.join(""));
+    } else {
+      x = result;
+      result = undefined;
+    }
     YH.operate(nowOperator);
     printNum.innerText = Number(result);
-  } else {
+    x = undefined;
+    for (i=0; i<YH.numBox.length;) {
+      YH.numBox.pop();
+    }
+  } else {                         // 그 외 (사칙연산)
     if (nowOperator === undefined) {
       nowOperator = this.value;
+      x = Number(printNum.innerText);
       for (i=0; i<YH.numBox.length;) {
         YH.numBox.pop();
-        YH.intNumBox();
       }
     }
   }
