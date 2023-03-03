@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 275px;
+  height: 450px;
+  margin: 0 auto;
+  border: 3px solid black;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+#monitor {
+  display: inherit;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.5rem;
+  width : 100%;
+  height: 25%;
+  border: 1px solid black;
+  border-radius: 1rem;
+}
+
+#monitor > p {
+  width: 100%;
+  height: 50%;
+  text-align: right;
+  font-size: 2.5rem;
+}
+
+#subwrap {
+  display: inherit;
+}
+
+#subwrap > p {
+  height: 50%;
+  text-align: right;
+  font-size: 0.7rem;
+}
+
+#numPad {
+  display: inherit;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 70%;
+  height: 60%;
+}
+
+#numPad > input {
+  width: 55px;
+  height: 20%;
+}
+
+#numPad >input:nth-child(1) {
+  order: 1
+}
+
+#operator {
+  display: inherit;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  height: 60%;
+}
+
+#operator > input {
+  width: 50px;
+  height: 20%;
+}
