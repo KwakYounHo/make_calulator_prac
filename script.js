@@ -56,12 +56,15 @@ const operator = document.getElementById('operator');
 
 
 /*--------------모니터-----------------*/
-for (i=0; i<3; i++) {
-  YH.createElement('p',monitor);
+YH.createElement('div',monitor,'id','subwrap')
+const monitorSubwrap = document.getElementById('subwrap');
+for (i=0; i<2; i++) {
+  YH.createElement('p',subwrap);
 }
-const printNum = monitor.children[2];
-const printX = monitor.children[0];
-const printOperator = monitor.children[1];
+YH.createElement('p',monitor);
+const printNum = monitor.children[1];
+const printX = subwrap.children[0];
+const printOperator = subwrap.children[1];
 printNum.innerText = Number(YH.numBox.join(""))
 // --------------------------------------
 
