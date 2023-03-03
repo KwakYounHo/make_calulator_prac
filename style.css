@@ -12,7 +12,7 @@
   width: 275px;
   height: 450px;
   margin: 0 auto;
-  border: 3px solid black;
+  border: 3px solid rgba(0,0,0,0.5);
   border-radius: 0.5rem;
   padding: 0.5rem;
 }
@@ -50,13 +50,17 @@
   display: inherit;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   width: 70%;
   height: 60%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
 }
 
 #numPad > input {
   width: 55px;
   height: 20%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 #numPad >input:nth-child(1) {
@@ -66,12 +70,16 @@
 #operator {
   display: inherit;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 30%;
   height: 60%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
 }
 
 #operator > input {
   width: 50px;
-  height: 20%;
+  height: 14%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
