@@ -56,8 +56,12 @@ const operator = document.getElementById('operator');
 
 
 /*--------------모니터-----------------*/
-YH.createElement('p',monitor);
-const printNum = monitor.children[0];
+for (i=0; i<3; i++) {
+  YH.createElement('p',monitor);
+}
+const printNum = monitor.children[2];
+const printX = monitor.children[0];
+const printOperator = monitor.children[1];
 printNum.innerText = Number(YH.numBox.join(""))
 // --------------------------------------
 
@@ -130,6 +134,8 @@ function operatorClick() {
     if (nowOperator === undefined) {  // 최초 클릭 (operator가 없을 때)
       nowOperator = this.value;
       x = Number(printNum.innerText);
+      printX.innerText = x;
+      printOperator.innerText = nowOperator;
       for (i=0; i<YH.numBox.length;) {
         YH.numBox.pop();
       }
@@ -137,21 +143,26 @@ function operatorClick() {
       if (result === undefined) { // 결과가 없을 때
         if (YH.numBox.length === 0) { // 아무 숫자도 누르지 않았다면
           nowOperator = this.value;
+          printOperator.innerText = nowOperator;
         } else {                        // 숫자를 눌렀다면
           y = Number(YH.numBox.join(""));
           YH.operate(nowOperator);
           printNum.innerText = result;
           x = result;
+          printX.innerText = x;
           result = undefined;
           for (i=0; i<YH.numBox.length;) {
             YH.numBox.pop();
           }
           nowOperator = this.value;
+          printOperator.innerText = nowOperator;
         }
       } else {
         x = result;
+        printX.innerText = x;
         result = undefined;
         nowOperator = this.value;
+        printOperator.innerText = nowOperator;
       }
     }
   }
