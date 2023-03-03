@@ -127,11 +127,31 @@ function operatorClick() {
       YH.numBox.pop();
     }
   } else {                         // 그 외 (사칙연산)
-    if (nowOperator === undefined) {
+    if (nowOperator === undefined) {  // 최초 클릭 (operator가 없을 때)
       nowOperator = this.value;
       x = Number(printNum.innerText);
       for (i=0; i<YH.numBox.length;) {
         YH.numBox.pop();
+      }
+    } else {                        // operator가 있을 때
+      if (result === undefined) { // 결과가 없을 때
+        if (YH.numBox.length === 0) { // 아무 숫자도 누르지 않았다면
+          nowOperator = this.value;
+        } else {                        // 숫자를 눌렀다면
+          y = Number(YH.numBox.join(""));
+          YH.operate(nowOperator);
+          printNum.innerText = result;
+          x = result;
+          result = undefined;
+          for (i=0; i<YH.numBox.length;) {
+            YH.numBox.pop();
+          }
+          nowOperator = this.value;
+        }
+      } else {
+        x = result;
+        result = undefined;
+        nowOperator = this.value;
       }
     }
   }
