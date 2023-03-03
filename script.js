@@ -110,8 +110,10 @@ let result;
 function operatorClick() {
   if (this.value === 'C') { // 초기화
     x = undefined;
+    printX.innerText = '';
     y = undefined;
     nowOperator = undefined;
+    printOperator.innerText = '';
     result = undefined;
     for (i=0; i<YH.numBox.length;) {
       YH.numBox.pop();
